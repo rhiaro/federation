@@ -47,13 +47,13 @@ The webmention endpoint is advertised in the HTTP Link header or a `<link>` or `
 ```http
 GET /webmention-endpoint?target=http://alice.host/post-by-alice HTTP/1.1
 Host: alice.host
+Accept: ...
 ```
 
 The requester adds the `target` parameter to the webmention endpoint URL and fetches that.
 
-MISSING PIECE: to what extend to we specify what should be expected back? I wanna go with a list of URLs at a minimum. Could equally be html+microformats, JSON, or RDF - maybe the requester sends an Accept header with their preference?
+The requester can specify their preferred Content-type with an `Accept` header. But they should probably be ready for anything. It's a wild web out there.
 
 ## Issues
 
-* Missing piece ^
 * If we reuse `rel="webmention"` people who delegate their webmention endpoitns are forced to use the same service for getting as receiving.
